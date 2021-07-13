@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap");
+
+@font-face {
+  font-family: font-1;
+  src: url(./assets/NotoSansJP-Medium.otf);
+}
+
+/* * signifie tout les éléments de la page */
+* {
+  border: 2px red solid;
+  /*margin: 0%;
+  padding: 0%;*/
+}
+
+body {
+  font-family: "font-1", serif;
+  background: url(./assets/bg.jpg) no-repeat fixed center/cover;
+  height: 100vh;
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 2.5rem;
+  color: rgba(113, 255, 108, 0.678);
+  text-shadow: 5px 3px 0 #ffffff;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+}
+
+main {
+  background: rgba(255, 255, 255, 0.95);
+  width: 90%;
+  min-height: 500px;
+  margin: 0 auto 0 auto;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px 5px rgba(0, 0, 0, 0.95);
+}
+
+/* POSITIONING */
+.positioning,
+.flexbox,
+.grid {
+  border: 2px solid skyblue;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.positioning {
+  position: relative;
+}
+
+h2 {
+  margin: 0;
+}
+
+#circle {
+  height: 60px;
+  width: 60px;
+  background: skyblue;
+  padding: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  right: 110px;
+  box-shadow: 0 2px 12px 5px rgba(0, 0, 0, 0.13);
+}
+
+#rectangle {
+  height: 15px;
+  width: 100px;
+  background: mediumorchid;
+  padding: 20px;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Flexbox */
+ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  font-size: 0.7rem;
+  height: 160px;
+  width: 160px;
+  background: turquoise;
+
+  /* centrer verticalement */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Grid*/
+.grid-container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  padding: 20px;
+}
+
+.img {
+  text-align: center;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "i1 i2"
+    "ta ta"
+    "bt bt";
+}
+input,
+textarea {
+  margin: 5px;
+  height: 45px;
+  border: 1px solid darkblue;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+#firstname {
+  grid-area: i1;
+}
+#surname {
+  grid-area: i2;
+}
+textarea {
+  grid-area: ta;
+  resize: none;
+}
+input[type="submit"] {
+  grid-area: bt;
+  cursor: pointer;
+  background: cyan;
+}
+
+input[type="submit"]:hover {
+  color: white;
+  background: green;
+}
+
+/*Responsive*/
+@media screen and (max-width: 1000px) {
+  .grid-container {
+    display: block;
+  }
+}
+@media screen and (max-width: 780px) {
+  form {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "i1"
+      "i2"
+      "ta"
+      "bt";
+  }
+}
